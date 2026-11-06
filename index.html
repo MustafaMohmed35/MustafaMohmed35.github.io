@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <meta name="description" content="Mustafa Mohamed — personal portfolio. Discover my profile, skills, and selected web design projects.">
+  <meta name="keywords" content="Mustafa Mohamed, personal portfolio, web design, HTML, CSS, JavaScript, Egypt">
+  <meta name="author" content="Mustafa Mohamed">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mustafa Mohamed | Personal Portfolio">
+  <meta property="og:description" content="A personal portfolio showcasing Mustafa Mohamed's profile, skills, and selected projects.">
+  <meta property="og:image" content="assets/mustafa-profile.jpg">
+  <title>Mustafa Mohamed | Personal Portfolio</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mustafa Mohamed",
+    "email": "mailto:mostafamohm48@gmail.com",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100082064554480",
+      "https://www.instagram.com/mustafa_mohamed232/"
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Secondary Education"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Mustafa Mohamed home"><span class="brand-mark">M</span><span>Mustafa<span class="brand-dot">.</span></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-en="About" data-ar="من أنا">About</a>
+        <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+        <a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a>
+        <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
+        <button class="language-toggle" id="languageToggle" type="button">العربية</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="status-dot"></span><span data-en="WELCOME TO MY PERSONAL SPACE" data-ar="أهلاً بيك في موقعي الشخصي">WELCOME TO MY PERSONAL SPACE</span></div>
+        <p class="hero-kicker" data-en="Hello, I'm" data-ar="أهلاً، أنا">Hello, I'm</p>
+        <h1>Mustafa<br><span>Mohamed</span></h1>
+        <p class="hero-description" data-en="I’m building my path, learning new skills, and turning ideas into creative digital experiences." data-ar="أنا ببني طريقي، وبتعلم مهارات جديدة، وبحوّل الأفكار لتجارب رقمية إبداعية.">I’m building my path, learning new skills, and turning ideas into creative digital experiences.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects"><span data-en="Explore my work" data-ar="شوف مشاريعي">Explore my work</span><span aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#contact" data-en="Get in touch" data-ar="تواصل معي">Get in touch</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://www.facebook.com/profile.php?id=100082064554480" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/mustafa_mohamed232/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+          <a href="mailto:mostafamohm48@gmail.com" aria-label="Email">✉</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="photo-orbit orbit-one"></div><div class="photo-orbit orbit-two"></div>
+        <div class="photo-frame"><img src="assets/mustafa-profile.jpg" alt="Portrait of Mustafa Mohamed"></div>
+        <div class="floating-card card-top"><span class="mini-icon">✦</span><span data-en="Always learning" data-ar="التعلم مستمر">Always learning</span></div>
+        <div class="floating-card card-bottom"><span class="card-line"></span><span data-en="Based in Egypt" data-ar="من مصر">Based in Egypt</span></div>
+        <div class="hero-number">01 <span>/ 04</span></div>
+      </div>
+      <a class="scroll-cue" href="#about"><span></span><span data-en="SCROLL TO DISCOVER" data-ar="انزل لاكتشاف المزيد">SCROLL TO DISCOVER</span></a>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="section-heading reveal"><p class="section-label">01 / <span data-en="THE INTRODUCTION" data-ar="مقدمة">THE INTRODUCTION</span></p><h2 data-en="A little about <em>me.</em>" data-ar="نبذة <em>عني.</em>">A little about <em>me.</em></h2></div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="large-copy" data-en="Curious by nature. Motivated by growth. Excited about what I can create next." data-ar="بحب أتعلم وأتطور، وعندي شغف إني أكتشف أقدر أعمل إيه بعد كده.">Curious by nature. Motivated by growth. Excited about what I can create next.</p>
+          <p data-en="I'm Mustafa Mohamed. I have a general secondary-level educational qualification and I'm focused on developing practical skills, exploring technology, and building a strong foundation for my future." data-ar="أنا مصطفى محمد، حاصل على مؤهل متوسط، ومركز على تطوير مهارات عملية واكتشاف التكنولوجيا وبناء أساس قوي لمستقبلي.">I'm Mustafa Mohamed. I have a general secondary-level educational qualification and I'm focused on developing practical skills, exploring technology, and building a strong foundation for my future.</p>
+          <p data-en="This website is my digital space to share what I'm learning, the projects I practice with, and the goals I'm working toward." data-ar="الموقع ده مساحتي الرقمية اللي بعرض فيها اللي بتعلمه، والمشاريع التدريبية، والأهداف اللي بسعى أحققها.">This website is my digital space to share what I'm learning, the projects I practice with, and the goals I'm working toward.</p>
+        </div>
+        <div class="info-panel reveal">
+          <div class="info-row"><span data-en="FULL NAME" data-ar="الاسم بالكامل">FULL NAME</span><strong>Mustafa Mohamed</strong></div>
+          <div class="info-row"><span data-en="EDUCATION" data-ar="المؤهل الدراسي">EDUCATION</span><strong data-en="Intermediate Education" data-ar="مؤهل متوسط">Intermediate Education</strong></div>
+          <div class="info-row"><span data-en="LOCATION" data-ar="الموقع">LOCATION</span><strong data-en="Egypt" data-ar="مصر">Egypt</strong></div>
+          <div class="info-row"><span data-en="EMAIL" data-ar="البريد الإلكتروني">EMAIL</span><a href="mailto:mostafamohm48@gmail.com">mostafamohm48@gmail.com</a></div>
+          <div class="info-row"><span data-en="CURRENT FOCUS" data-ar="مجال الاهتمام">CURRENT FOCUS</span><strong data-en="Learning & personal growth" data-ar="التعلم والتطوير الشخصي">Learning & personal growth</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal"><p class="section-label">02 / <span data-en="WHAT I'M BUILDING" data-ar="المهارات">WHAT I'M BUILDING</span></p><h2 data-en="Skills & <em>interests.</em>" data-ar="مهارات <em>واهتمامات.</em>">Skills & <em>interests.</em></h2></div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><span class="skill-index">01</span><div class="skill-icon">⌘</div><h3>HTML & CSS</h3><p data-en="Learning to structure and style clean, responsive web pages." data-ar="تعلم بناء وتنسيق صفحات ويب منظمة ومتجاوبة.">Learning to structure and style clean, responsive web pages.</p><div class="skill-track"><span style="width:65%"></span></div><small data-en="Learning in progress" data-ar="في مرحلة التعلم">Learning in progress</small></article>
+          <article class="skill-card reveal"><span class="skill-index">02</span><div class="skill-icon">✳</div><h3>JavaScript</h3><p data-en="Exploring the fundamentals of interactive web experiences." data-ar="استكشاف أساسيات إضافة التفاعل لمواقع الويب.">Exploring the fundamentals of interactive web experiences.</p><div class="skill-track"><span style="width:35%"></span></div><small data-en="Learning in progress" data-ar="في مرحلة التعلم">Learning in progress</small></article>
+          <article class="skill-card reveal"><span class="skill-index">03</span><div class="skill-icon">◈</div><h3 data-en="Creative Thinking" data-ar="التفكير الإبداعي">Creative Thinking</h3><p data-en="Finding fresh approaches and turning ideas into useful concepts." data-ar="البحث عن أفكار جديدة وتحويلها لمفاهيم مفيدة.">Finding fresh approaches and turning ideas into useful concepts.</p><div class="skill-track"><span style="width:75%"></span></div><small data-en="Growing every day" data-ar="بتطور كل يوم">Growing every day</small></article>
+          <article class="skill-card reveal"><span class="skill-index">04</span><div class="skill-icon">↗</div><h3 data-en="Self Development" data-ar="التطوير الذاتي">Self Development</h3><p data-en="Committed to learning, consistency, and continuous improvement." data-ar="الالتزام بالتعلم والاستمرار والتحسن بشكل دائم.">Committed to learning, consistency, and continuous improvement.</p><div class="skill-track"><span style="width:80%"></span></div><small data-en="Growing every day" data-ar="بتطور كل يوم">Growing every day</small></article>
+        </div>
+        <p class="honesty-note" data-en="Skill levels are illustrative and represent my current learning journey." data-ar="مستويات المهارات المعروضة للتوضيح وتعبر عن رحلة التعلم الحالية.">Skill levels are illustrative and represent my current learning journey.</p>
+      </div>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="section-heading reveal"><p class="section-label">03 / <span data-en="SELECTED CONCEPTS" data-ar="نماذج ومشاريع">SELECTED CONCEPTS</span></p><h2 data-en="Ideas turned into <em>projects.</em>" data-ar="أفكار اتحولت إلى <em>مشاريع.</em>">Ideas turned into <em>projects.</em></h2><p class="heading-note" data-en="A few portfolio-ready practice concepts. These are sample concepts, not client work." data-ar="مجموعة نماذج تدريبية للعرض في الموقع، وليست أعمالاً منفذة لعملاء.">A few portfolio-ready practice concepts. These are sample concepts, not client work.</p></div>
+      <div class="projects-grid">
+        <article class="project-card project-large reveal"><div class="project-art art-one"><div class="mock-browser"><div class="browser-bar"><i></i><i></i><i></i><span>nexa.studio</span></div><div class="mock-content"><b>Design beyond<br>the ordinary.</b><div class="mock-pill">Explore the studio ↗</div><div class="mock-shape"></div></div></div></div><div class="project-meta"><div><span class="project-type">01 / WEB DESIGN CONCEPT</span><h3>Nexa Creative Studio</h3><p data-en="A bold landing page concept for a modern creative agency." data-ar="تصميم صفحة رئيسية عصرية لوكالة إبداعية.">A bold landing page concept for a modern creative agency.</p></div><span class="project-arrow">↗</span></div></article>
+        <article class="project-card reveal"><div class="project-art art-two"><div class="phone-mock"><div class="phone-top"></div><span>GOOD<br><b>FOOD.</b></span><div class="food-circle">✦</div><small>Fresh choices, every day.</small><div class="food-button">ORDER NOW</div></div></div><div class="project-meta"><div><span class="project-type">02 / UI CONCEPT</span><h3>Good Food — Restaurant</h3><p data-en="A vibrant restaurant interface concept." data-ar="نموذج واجهة لموقع مطعم بألوان مميزة.">A vibrant restaurant interface concept.</p></div><span class="project-arrow">↗</span></div></article>
+        <article class="project-card reveal"><div class="project-art art-three"><div class="dashboard"><div class="dash-sidebar">◈<hr>▦<hr>⌂<hr>⚙</div><div class="dash-main"><span>OVERVIEW</span><b>Welcome back</b><div class="dash-stats"><i></i><i></i><i></i></div><div class="dash-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div><div class="project-meta"><div><span class="project-type">03 / DASHBOARD CONCEPT</span><h3>Orbit Analytics</h3><p data-en="A clean dashboard layout for visualizing key metrics." data-ar="تصميم لوحة تحكم لعرض البيانات والمؤشرات بشكل واضح.">A clean dashboard layout for visualizing key metrics.</p></div><span class="project-arrow">↗</span></div></article>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner reveal">
+        <p class="section-label">04 / <span data-en="LET'S CONNECT" data-ar="خلينا نتواصل">LET'S CONNECT</span></p>
+        <h2 data-en="Have an idea?<br><em>Let's talk.</em>" data-ar="عندك فكرة؟<br><em>خلينا نتكلم.</em>">Have an idea?<br><em>Let's talk.</em></h2>
+        <p data-en="For conversations, opportunities, or just a friendly hello — my inbox is open." data-ar="للتواصل أو الفرص أو حتى مجرد السلام، ابعتلي رسالة.">For conversations, opportunities, or just a friendly hello — my inbox is open.</p>
+        <a class="contact-email" href="mailto:mostafamohm48@gmail.com">mostafamohm48@gmail.com <span>↗</span></a>
+        <div class="contact-links"><a href="https://www.facebook.com/profile.php?id=100082064554480" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="https://www.instagram.com/mustafa_mohamed232/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container"><a class="brand" href="#top"><span class="brand-mark">M</span><span>Mustafa<span class="brand-dot">.</span></span></a><p>© <span id="year"></span> Mustafa Mohamed. <span data-en="Made with care." data-ar="صُنع بكل اهتمام.">Made with care.</span></p><a href="#top" class="back-top" aria-label="Back to top">↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
