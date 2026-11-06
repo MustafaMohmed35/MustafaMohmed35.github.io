@@ -1,0 +1,23 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>مدير المهام | مصطفى محمد</title><link rel="icon" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="app.css">
+<style>.stat{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#9ba8bf;margin-top:6px}
+li label{flex:1;display:flex;align-items:center;gap:12px;cursor:pointer;font-size:15px}li input{flex:none;width:20px;height:20px;accent-color:#8b7cff;padding:0}li.done span{text-decoration:line-through;color:#6f7d96}</style></head><body><div class="wrap">
+<div class="top"><a href="index.html">← العودة للموقع</a><span>مشروع تطبيقي</span></div>
+<h1>مدير <em>المهام.</em></h1><p class="sub">نظّم يومك بسهولة. مهامك بتتحفظ تلقائيًا على جهازك.</p>
+<div class="card"><form class="row" id="f"><input id="t" placeholder="اكتب مهمة جديدة..." maxlength="80" autocomplete="off"><button class="btn">إضافة</button></form>
+<div class="tabs" id="tabs"><button class="tab on" data-f="all">الكل</button><button class="tab" data-f="todo">المتبقي</button><button class="tab" data-f="done">المنجز</button></div>
+<ul id="l"></ul><div class="stat"><span id="c"></span><button class="x" id="clr">مسح المنجز</button></div><div class="bar"><i id="p"></i></div></div></div>
+<script>
+let T=[],F='all';const $=i=>document.getElementById(i);
+try{T=JSON.parse(localStorage.getItem('tasks')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('tasks',JSON.stringify(T))}catch(e){}};
+function draw(){const L=T.filter(x=>F=='all'||(F=='done')==x.d);$('l').innerHTML=L.length?'':'<div class="empty">لا توجد مهام هنا ✨</div>';
+L.forEach(x=>{const li=document.createElement('li');li.className=x.d?'done':'';
+li.innerHTML='<label><input type="checkbox" '+(x.d?'checked':'')+'><span></span></label><button class="x" title="حذف">✕</button>';
+li.querySelector('span').textContent=x.t;
+li.querySelector('input').onchange=()=>{x.d=!x.d;save();draw()};
+li.querySelector('.x').onclick=()=>{T=T.filter(y=>y!==x);save();draw()};$('l').appendChild(li)});
+const d=T.filter(x=>x.d).length;$('c').textContent=d+' من '+T.length+' مكتملة';$('p').style.width=(T.length?d/T.length*100:0)+'%'}
+$('f').onsubmit=e=>{e.preventDefault();const v=$('t').value.trim();if(!v)return;T.unshift({t:v,d:false});$('t').value='';save();draw()};
+$('tabs').onclick=e=>{const b=e.target.closest('.tab');if(!b)return;F=b.dataset.f;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x==b));draw()};
+$('clr').onclick=()=>{T=T.filter(x=>!x.d);save();draw()};draw();
+</script></body></html>

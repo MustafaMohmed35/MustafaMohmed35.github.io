@@ -1,0 +1,21 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>حاسبة الميزانية | مصطفى محمد</title><link rel="icon" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="app.css">
+<style>.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}.sum div{background:#0a1122;border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:14px 6px;text-align:center}.sum small{display:block;color:#9ba8bf;font-size:11px;margin-bottom:6px}.sum b{font-size:16px}
+#bal{color:#55d6e8}#inc{color:#5ce0a0}#exp{color:#ff8a9a}.add{display:grid;grid-template-columns:1fr 1fr;gap:10px}.add input:first-child,.add .btn{grid-column:1/-1}
+.cap{display:flex;justify-content:space-between;font-size:12px;color:#9ba8bf;margin-bottom:2px}li span{flex:1;font-size:14px}li b{font-size:14px}li.i b{color:#5ce0a0}li.o b{color:#ff8a9a}</style></head><body><div class="wrap">
+<div class="top"><a href="index.html">← العودة للموقع</a><span>مشروع تطبيقي</span></div>
+<h1>حاسبة <em>الميزانية.</em></h1><p class="sub">سجّل دخلك ومصروفاتك وشوف رصيدك لحظيًا. بياناتك بتتحفظ على جهازك.</p>
+<div class="sum"><div><small>الرصيد</small><b id="bal"></b></div><div><small>الدخل</small><b id="inc"></b></div><div><small>المصروفات</small><b id="exp"></b></div></div>
+<div class="card"><form class="add" id="f"><input id="d" placeholder="الوصف (مثال: راتب، مواصلات)" maxlength="40" autocomplete="off"><input id="a" type="number" min="0" step="any" placeholder="المبلغ"><select id="k"><option value="o">مصروف</option><option value="i">دخل</option></select><button class="btn">إضافة عملية</button></form></div>
+<div class="card"><div class="cap"><span>نسبة الإنفاق من الدخل</span><span id="pt"></span></div><div class="bar"><i id="p"></i></div><ul id="l" style="margin-top:10px"></ul></div></div>
+<script>
+let T=[];const $=i=>document.getElementById(i),fm=n=>n.toLocaleString('ar-EG')+' ج.م';
+try{T=JSON.parse(localStorage.getItem('bud')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('bud',JSON.stringify(T))}catch(e){}};
+function draw(){const s=k=>T.filter(x=>x.k==k).reduce((a,x)=>a+x.a,0),i=s('i'),o=s('o');
+$('inc').textContent=fm(i);$('exp').textContent=fm(o);$('bal').textContent=fm(i-o);
+const pc=i?Math.min(100,o/i*100):(o?100:0);$('p').style.width=pc+'%';$('pt').textContent=(i||o)?Math.round(pc).toLocaleString('ar-EG')+'٪':'—';
+$('l').innerHTML=T.length?'':'<div class="empty">لا توجد عمليات بعد. أضف أول عملية 💸</div>';
+T.forEach(x=>{const li=document.createElement('li');li.className=x.k;li.innerHTML='<span></span><b dir="ltr">'+(x.k=='i'?'+':'−')+fm(x.a)+'</b><button class="x" title="حذف">✕</button>';
+li.querySelector('span').textContent=x.d;li.querySelector('.x').onclick=()=>{T=T.filter(y=>y!==x);save();draw()};$('l').appendChild(li)})}
+$('f').onsubmit=e=>{e.preventDefault();const a=parseFloat($('a').value),d=$('d').value.trim();if(!d||!(a>0))return;T.unshift({d,a,k:$('k').value});$('d').value=$('a').value='';save();draw()};draw();
+</script></body></html>

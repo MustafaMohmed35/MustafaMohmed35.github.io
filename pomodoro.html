@@ -1,0 +1,20 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>مؤقت التركيز | مصطفى محمد</title><link rel="icon" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="app.css">
+<style>.ring{position:relative;width:250px;height:250px;margin:26px auto}.ring svg{width:100%;height:100%;transform:rotate(-90deg)}circle{fill:none;stroke-width:9}.bg{stroke:#27324a}.fg{stroke:url(#g);stroke-linecap:round;stroke-dasharray:565.5;transition:stroke-dashoffset .5s linear}
+#tm{position:absolute;inset:0;display:grid;place-items:center;font-size:56px;font-weight:800;direction:ltr;font-variant-numeric:tabular-nums}.card{text-align:center}.row{justify-content:center}.card .sub{margin:20px 0 0}</style></head><body><div class="wrap">
+<div class="top"><a href="index.html">← العودة للموقع</a><span>مشروع تطبيقي</span></div>
+<h1>مؤقت <em>التركيز.</em></h1><p class="sub">تقنية بومودورو: ركّز 25 دقيقة، ثم خد استراحة قصيرة.</p>
+<div class="card"><div class="tabs" id="tabs"><button class="tab on" data-m="f">تركيز</button><button class="tab" data-m="s">استراحة قصيرة</button><button class="tab" data-m="l">استراحة طويلة</button></div>
+<div class="ring"><svg viewBox="0 0 200 200"><defs><linearGradient id="g"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#55d6e8"/></linearGradient></defs><circle class="bg" cx="100" cy="100" r="90"/><circle class="fg" id="arc" cx="100" cy="100" r="90"/></svg><div id="tm">25:00</div></div>
+<div class="row"><button class="btn" id="go">ابدأ</button><button class="btn ghost" id="rs">إعادة</button></div><p class="sub" id="ss"></p></div></div>
+<script>
+const $=i=>document.getElementById(i),C=565.5,M={f:25,s:5,l:15},day=new Date().toDateString();let m='f',left=1500,end=0,iv=null,n=0;
+try{const s=JSON.parse(localStorage.getItem('pomo')||'{}');if(s.d==day)n=s.n||0}catch(e){}
+function draw(){const a=String(Math.floor(left/60)).padStart(2,'0'),b=String(left%60).padStart(2,'0');$('tm').textContent=a+':'+b;document.title=(iv?a+':'+b+' • ':'')+'مؤقت التركيز';
+$('arc').style.strokeDashoffset=C*(1-left/(M[m]*60));$('ss').textContent='جلسات التركيز المكتملة اليوم: '+n.toLocaleString('ar-EG')}
+function stop(){clearInterval(iv);iv=null;$('go').textContent='ابدأ'}
+function beep(){try{const a=new AudioContext(),o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=660;g.gain.setValueAtTime(.2,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+1);o.start();o.stop(a.currentTime+1)}catch(e){}}
+function tick(){left=Math.max(0,Math.round((end-Date.now())/1000));if(!left){stop();beep();if(m=='f'){n++;try{localStorage.setItem('pomo',JSON.stringify({d:day,n}))}catch(e){}}}draw()}
+function set(k){m=k;stop();left=M[k]*60;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.m==k));draw()}
+$('go').onclick=()=>{if(iv){stop();draw();return}if(!left)left=M[m]*60;end=Date.now()+left*1000;iv=setInterval(tick,250);$('go').textContent='إيقاف مؤقت';draw()};
+$('rs').onclick=()=>set(m);$('tabs').onclick=e=>{const b=e.target.closest('.tab');if(b)set(b.dataset.m)};draw();
+</script></body></html>
